@@ -9,6 +9,20 @@ import {FontAwesome} from "@expo/vector-icons"
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { theme } from 'native-base';
 
+
+
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import Firebasekeys from './../../config'
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+let firebaseConfig = Firebasekeys;
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+
+
+
 const themecolor = '#28407E'
 
 const numStars = 5
@@ -24,6 +38,8 @@ export default class TherapyResponse extends React.Component {
         rating: 1,
         animation: new Animated.Value(1)
     }
+
+
     
     // state = {
     //     rating: 1,
@@ -85,7 +101,7 @@ export default class TherapyResponse extends React.Component {
                                 <Text style={styles.whiteText}>Access Resource</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => this.handleSubmit}>
                             <View style={styles.loginButton}>
                                 <Text style={styles.whiteText} >Submit Feedback</Text>
                             </View>

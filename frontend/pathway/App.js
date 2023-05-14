@@ -6,6 +6,8 @@ import {
   MaterialCommunityIcons,
   FontAwesome5,
 } from "@expo/vector-icons";
+
+
 import HomePage from "./screens/main/Home";
 import TherapyResponseScreen from "./screens/main/TherapyResponse";
 import TherapyFinderPage from "./screens/main/TherapyFinder";
@@ -14,6 +16,8 @@ import LoginScreen from "./screens/auth/LoginScreen";
 import SignupScreen from "./screens/auth/SignupScreen";
 import SplashScreen from "./screens/auth/SplashScreen";
 import QuoteGeneratorPage from './screens/main/QuoteGenerator'
+
+
 
 // v9 compat packages are API compatible with v8 code
 import firebase from 'firebase/compat/app';

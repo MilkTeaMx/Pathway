@@ -3,13 +3,13 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 
-cred = credentials.Certificate("firebase_key.json")
+cred = credentials.Certificate("fire_key.json")
 firebase_admin.initialize_app(cred)
 
 db=firestore.client()
 
 
-from scipy import spatial
+from scipy import spatial  
 
 def find_recommended_link(category, user_id):
     user_ref = db.collection(u'userRatings').document(f'{user_id}')

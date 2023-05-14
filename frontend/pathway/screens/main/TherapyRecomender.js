@@ -33,6 +33,8 @@ export default function App({navigation}) {
   const [mapRoutingActive, setMapRoutingActive] = useState();
   const [dilemna, setDilemna] = useState();
 
+  
+
   useEffect(() => {
     (async () => {
 
@@ -42,20 +44,18 @@ export default function App({navigation}) {
   const handleInput = () => {
     
     const userId = firebase.auth().currentUser.uid
-    fetch('https://localhost:3001', {
-      method: 'POST',
-      headers: {
-        'userRatingId': userId
-      },
-      body: {
-        'user_input': dilemna
-      }
-    }).then((response) => console.log(response))
-    .catch((error) => {
-      console.log(error)
-    })
+
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
     
-    console.log(userId)
+    fetch("http://localhost:3001/diagnoser", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+    
+    console.log('asdf')
     //navigation.navigate('Therapy Response Screen')
   }
 

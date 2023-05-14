@@ -22,7 +22,7 @@ therapy_diagnoser_post_args = reqparse.RequestParser()
 therapy_diagnoser_post_args.add_argument("user_input", help="Please Add Valid Input", required=True, location='form')
 therapy_diagnoser_post_args.add_argument("userRatingId", help="Please Add Bearer Token", required=True, location='headers')
 
-my_therapy_diagnoser = therapy_diagnoser() 
+my_therapy_diagnoser = therapy_diagnoser()
 
 class therapy_diagnoser(Resource): 
     def post(self):
@@ -34,12 +34,13 @@ class therapy_diagnoser(Resource):
         link, unviewed_links = find_recommended_link(category[0], user_input['userRatingId'])
      
         
-        return {"category diagnosis": f"{category[0]}", "sentiment_analysis": f"{sentiment}", "recommendeed_link": f"{link}", "unviewed_links": f"{unviewed_links}"}
+        return {"category_diagnosis": f"{category[0]}", "sentiment_analysis": f"{sentiment}", "recommendeed_link": f"{link}", "unviewed_links": f"{unviewed_links}"}
     
+    def get(self):
+        return {"output": "SUCCESS"}
 
 
 api.add_resource(therapy_diagnoser, '/diagnoser')
-
 
 
 
